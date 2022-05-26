@@ -1,0 +1,46 @@
+{
+  "name": "odnd-with-chainmail",
+  "title": "Original Dungeons & Dragons with Chainmail",
+  "description": "",
+  "version": "0.0.1",
+  "author": "CWR",
+  "scripts": [
+    "scripts/system-script.js"
+  ],
+  "esmodules": [
+    "scripts/system-module.mjs"
+  ],
+  "styles": [
+    "styles/system-styles.css"
+  ],
+  "packs": [
+    {
+      "name": "monsters",
+      "label": "My Monsters",
+      "path": "packs/monsters.db",
+      "type": "Actor"
+    },
+    {
+      "name": "items",
+      "label": "My Items",
+      "path": "packs/items.db",
+      "type": "Item"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": false,
+  "initiative": "1d6",
+  "gridDistance": 1,
+  "gridUnits": "in",
+  "primaryTokenAttribute": "resources.class",
+  "secondaryTokenAttribute": "resources.level",
+  "url": "",
+  "manifest": "",
+  "download": ""
+}
