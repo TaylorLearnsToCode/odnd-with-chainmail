@@ -1,0 +1,28 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  {{!-- Actor Sheet Header --}}
+  <header class="sheet-header">
+    <h1>
+      Monster
+      <input
+        name="name"
+        type="text"
+        value="{{data.name}}"
+        title="{{data.name}}"
+      />
+    </h1>
+    <label>Strength</label>
+    <input name="str" type="number" value="{{data.str.value}}" />
+  </header>
+
+  {{!-- Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="placeholder">Placeholder</a>
+  </nav>
+
+  {{!-- Monster Sheet Body --}}
+  <section class="sheet-body">
+    <div class="tab description" data-group="primary" data-tab="placeholder">
+      Placeholder.
+    </div>
+  </section>
+</form>
