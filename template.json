@@ -29,7 +29,12 @@
       "cha": 10,
       "xp": 0,
       "xpBonus": 0,
-      "alignment": "Undeclared"
+      "alignment": "Undeclared",
+      "deathPoison": 20,
+      "wands": 20,
+      "stone": 20,
+      "dragonBreath": 20,
+      "stavesSpells": 20
     },
     "monster": {
       "templates": ["resources"]
