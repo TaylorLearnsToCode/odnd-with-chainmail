@@ -1,5 +1,2 @@
-export const CHARACTER_CLASS = new Map(
-  [1, 'Fighting Man'],
-  [2, 'Magic User'],
-  [3, 'Cleric']
-);
+export const CHARACTER_CLASSES = ['Fighting Man', 'Magic User', 'Cleric'];
+export const ALIGNMENTS = ['Law', 'Chaos', 'Undeclared'];

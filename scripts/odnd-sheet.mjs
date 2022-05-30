@@ -1,3 +1,5 @@
+import { ALIGNMENTS, CHARACTER_CLASSES } from './character-constants.mjs';
+
 export class OdndSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
@@ -24,11 +26,11 @@ export class OdndSheet extends ActorSheet {
   /** @override */
   getData() {
     const context = super.getData();
-    context.editable = true;
     context.sheetData = context.data.data;
+    context.sheetItems = context.data.items;
+    context.CHARACTER_CLASSES = CHARACTER_CLASSES;
+    context.ALIGNMENTS = ALIGNMENTS;
     const actorData = this.actor.data.toObject(false);
-    // context.data = actorData.data;
-    // context.flags = actorData.flags;
 
     if (actorData.type == 'character') {
       this._prepareCharacterData(context);
@@ -50,19 +52,46 @@ export class OdndSheet extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find('.sheet-tabs').click(event => {
-      console.log(event);
+    html.find('.add-language').click(event => {
+      this._addLanguage(event);
     });
+    html.find('.edit-language').click(event => {
+      this._editLanguage(event);
+    });
+    html.find('.remove-language').click(event => {
+      this._removeLanguage(event);
+    });
+  }
+
+  _addLanguage(event) {
+    event.preventDefault();
+    const language = getDocumentClass('Item');
+    return language.create(
+      {
+        name: 'New Language',
+        type: 'language'
+      },
+      {
+        parent: this.actor
+      }
+    );
+  }
+
+  _editLanguage(event) {
+    event.preventDefault();
+    const language = this.actor.items.get(event.currentTarget.dataset.target);
+    language.sheet.render(true);
+  }
+
+  async _removeLanguage(event) {
+    event.preventDefault();
+    const language = this.actor.items.get(event.currentTarget.dataset.target);
+    language.delete();
   }
 
   /** @override */
   _getSubmitData(updateData) {
     const formData = super._getSubmitData(updateData);
-    Object.keys(formData).forEach((key, value) => {
-      if (!!this.actor.data.data[key]) {
-        this.actor.data.data[key].value = value;
-      }
-    });
     return formData;
   }
 }

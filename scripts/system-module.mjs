@@ -1,3 +1,4 @@
+import { LanguageSheet } from './language-sheet.mjs';
 import { OdndActor } from './odnd-actor.mjs';
 import { OdndSheet } from './odnd-sheet.mjs';
 
@@ -25,26 +26,7 @@ Hooks.once('init', async function () {
   // register odnd sheet
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('odnd', OdndSheet, { makeDefault: true });
-
-  // register initiative setting
-  game.settings.register('odnd', 'initFormula', {
-    name: 'Initiative Formula',
-    hint: 'Initiative Formula',
-    scope: 'odnd',
-    type: String,
-    default: '1d6',
-    config: true,
-    onChange: formula => _simpleUpdateInit(formula, true)
-  });
-
-  function _simpleUpdateInit(formula, notify = false) {
-    const isValid = Roll.validate(formula);
-    if (!isValid) {
-      if (notify) ui.notifications.error(`Invalid: ${formula}`);
-      return;
-    }
-    CONFIG.Combat.initiative.formula = formula;
-  }
+  Items.registerSheet('odnd', LanguageSheet, { makeDefault: false });
 
   // add cached templates (child HTMLs) for performance
   return loadTemplates([]);

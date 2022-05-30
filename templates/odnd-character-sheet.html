@@ -1,14 +1,37 @@
-<form class="flexcol {{cssClass}}" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
   {{!-- Actor Sheet Header --}}
-  <header class="sheet-header">
-    <p>Character Sheet</p>
-    <h1>
+  <header class="odnd-charsheet">
+    <img
+      class="profile-img odnd-char-icon"
+      src="{{data.img}}"
+      data-edit="img"
+      title="{{data.name}}"
+      height="100"
+      width="100"
+    />
+    <h1 class="odnd-char-name">
       <input name="name" type="text" value="{{data.name}}" />
     </h1>
-    <label>Class</label>
-    <input name="class" type="number" value="{{data.data.class.value}}" />
-    <label>Level</label>
-    <input name="level" type="number" value="{{sheetData.level.value}}" />
+    <section class="odnd-char-resources">
+      <label>Class</label>
+      <select name="data.class" value="{{sheetData.class}}">
+        {{#select sheetData.class}} {{#each CHARACTER_CLASSES}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+      <label>Level</label>
+      <input
+        name="data.level.value"
+        type="number"
+        value="{{sheetData.level.value}}"
+      />
+      <label>Alignment</label>
+      <select name="data.alignment" value="sheetData.alignment">
+        {{#select sheetData.alignment}} {{#each ALIGNMENTS}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+    </section>
   </header>
 
   {{!-- Tab Navigation --}}
@@ -19,13 +42,72 @@
   </nav>
 
   {{!-- Character Sheet Body --}}
-  <section class="sheet-body">
-    <div class="tab record" data-group="primary" data-tab="record">
-      Character Record
+  <section class="sheet-body odnd-sheet-body">
+    <div
+      class="tab record character-record"
+      data-group="primary"
+      data-tab="record"
+    >
+      <section class="character-abilities">
+        <label>Strength</label>
+        <input name="data.str" type="number" value="{{sheetData.str}}" />
+        <label>Intelligence</label>
+        <input name="data.int" type="number" value="{{sheetData.int}}" />
+        <label>Wisdom</label>
+        <input name="data.wis" type="number" value="{{sheetData.wis}}" />
+        <label>Constitution</label>
+        <input name="data.con" type="number" value="{{sheetData.con}}" />
+        <label>Dexterity</label>
+        <input name="data.dex" type="number" value="{{sheetData.dex}}" />
+        <label>Charisma</label>
+        <input name="data.cha" type="number" value="{{sheetData.cha}}" />
+      </section>
+      <section class="two-labeled-across" style="padding-top: 5px">
+        <label>Experience</label>
+        <input name="data.xp" type="number" value="{{sheetData.xp}}" />
+        <label>XP Bonus</label>
+        <span>
+          <input
+            name="data.xpBonus"
+            type="number"
+            style="width: calc(100% - 2em)"
+            value="{{sheetData.xpBonus}}"
+          />
+          %
+        </span>
+      </section>
+      <label style="padding-top: 5px; margin-left: 1em; padding-bottom: 3px"
+        >Languages</label
+      >
+      <div class="languages-display">
+        <ol class="language-list">
+          {{#each sheetItems as |language id|}} {{#if language.data.isLanguage}}
+          <li class="language" data-item-id="{{language._id}}">
+            <span> {{language.name}} </span>
+            <a class="edit-language" data-target="{{language._id}}">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a class="remove-language" data-target="{{language._id}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          </li>
+          {{/if}} {{/each}}
+        </ol>
+      </div>
+      <div style="text-align: center">
+        <a class="add-language">+ Add Language</a>
+      </div>
     </div>
 
     <div class="tab inventory" data-group="primary" data-tab="inventory">
-      Inventory
+      <section class="three-labeled-across">
+        <label>Copper Pieces</label>
+        <input name="data.cp" value="{{sheetData.cp}}" type="number" />
+        <label>Silver Pieces</label>
+        <input name="data.sp" value="{{sheetData.sp}}" type="number" />
+        <label>Gold Pieces</label>
+        <input name="data.gp" value="{{sheetData.gp}}" type="number" />
+      </section>
     </div>
 
     <div class="tab magic" data-group="primary" data-tab="magic">Magic</div>
