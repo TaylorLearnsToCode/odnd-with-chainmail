@@ -59,7 +59,14 @@ section.odnd-sheet-body ol.language-list li {
   grid-gap: 5px;
 }
 
-/* Language Sheet */
+section.odnd-sheet-body .saving-throws {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  margin: 10px 0px;
+}
+
+/* Languages Sheet */
 header.odnd-language-header h1 input{
   height: 1.5em;
 }
