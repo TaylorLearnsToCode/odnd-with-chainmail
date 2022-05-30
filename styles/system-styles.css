@@ -1,0 +1,65 @@
+/* Global */
+input[type=number] {
+  text-align: center;
+}
+
+/* Character Sheet Header */
+header.odnd-charsheet {
+  display: grid;
+  grid-template-rows: 50px 50px;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 5px;
+  grid-template-areas:
+    "o-icon o-char-name"
+    "o-icon o-resources";
+  }
+
+header.odnd-charsheet .odnd-char-icon {
+  grid-area: o-icon;
+}
+
+header.odnd-charsheet .odnd-char-name {
+  grid-area: o-char-name;
+}
+
+header.odnd-charsheet .odnd-char-resources {
+  grid-area: o-resources;
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(3, 1fr 2fr);
+}
+
+/* Character Sheet Body */
+section.odnd-sheet-body .character-abilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr 2fr);
+  grid-gap: 5px;
+}
+
+section.odnd-sheet-body .three-labeled-across {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 5px;
+}
+
+section.odnd-sheet-body .two-labeled-across {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+section.odnd-sheet-body ol.language-list {
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+section.odnd-sheet-body ol.language-list li {
+  display: grid;
+  grid-template-columns: 1fr 1em 1em;
+  grid-gap: 5px;
+}
+
+/* Language Sheet */
+header.odnd-language-header h1 input{
+  height: 1.5em;
+}

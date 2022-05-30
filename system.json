@@ -38,8 +38,8 @@
   "initiative": "1d6",
   "gridDistance": 1,
   "gridUnits": "in",
-  "primaryTokenAttribute": "resources.class",
-  "secondaryTokenAttribute": "resources.level",
+  "primaryTokenAttribute": "resources.level",
+  "secondaryTokenAttribute": "",
   "url": "",
   "manifest": "",
   "download": ""
