@@ -113,12 +113,255 @@
         value="{{weaponData.vsBardedHorse}}"
       />
     </div>
+    <div style="margin-top: 5px">
+      <label>Notes</label>
+      <input type="text" name="data.notes" value="{{weaponData.notes}}" />
+    </div>
   </section>
 
   <!-- Missile Weapons -->
   {{/if}} {{#if weaponData.isMissileWeapon}}
   <section class="missile-weapon-details">
-    <p>Specifics</p>
+    <div class="range-and-notes">
+      <label>Range</label>
+      <input name="data.range" type="number" value="{{weaponData.range}}" />
+      "
+      <label>Notes</label>
+      <input type="text" name="data.notes" value="{{weaponData.notes}}" />
+    </div>
+    <table>
+      <tr>
+        <th>Attack Vs (with Shield)</th>
+        <th>Short Range</th>
+        <th>Mid Range</th>
+        <th>Long Range</th>
+      </tr>
+      <tr>
+        <td>Unarmored</td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsUnarmored.short"
+              type="number"
+              value="{{weaponData.vsUnarmored.short}}"
+            />
+            (<input
+              name="data.vsShield.short"
+              type="number"
+              value="{{weaponData.vsShield.short}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsUnarmored.medium"
+              type="number"
+              value="{{weaponData.vsUnarmored.medium}}"
+            />
+            (<input
+              name="data.vsShield.medium"
+              type="number"
+              value="{{weaponData.vsShield.medium}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsUnarmored.long"
+              type="number"
+              value="{{weaponData.vsUnarmored.long}}"
+            />
+            (<input
+              name="data.vsShield.long"
+              type="number"
+              value="{{weaponData.vsShield.long}}"
+            />)
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Leather / Padded</td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsLeather.short"
+              type="number"
+              value="{{weaponData.vsLeather.short}}"
+            />
+            (<input
+              name="data.vsLeatherShield.short"
+              type="number"
+              value="{{weaponData.vsLeatherShield.short}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsLeather.medium"
+              type="number"
+              value="{{weaponData.vsLeather.medium}}"
+            />
+            (<input
+              name="data.vsLeatherShield.medium"
+              type="number"
+              value="{{weaponData.vsLeatherShield.medium}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsLeather.long"
+              type="number"
+              value="{{weaponData.vsLeather.long}}"
+            />
+            (<input
+              name="data.vsLeatherShield.long"
+              type="number"
+              value="{{weaponData.vsLeatherShield.long}}"
+            />)
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Chain, etc.</td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsChain.short"
+              type="number"
+              value="{{weaponData.vsChain.short}}"
+            />
+            (<input
+              name="data.vsChainShield.short"
+              type="number"
+              value="{{weaponData.vsChainShield.short}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsChain.medium"
+              type="number"
+              value="{{weaponData.vsChain.medium}}"
+            />
+            (<input
+              name="data.vsChainShield.medium"
+              type="number"
+              value="{{weaponData.vsChainShield.medium}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsChain.long"
+              type="number"
+              value="{{weaponData.vsChain.long}}"
+            />
+            (<input
+              name="data.vsChainShield.long"
+              type="number"
+              value="{{weaponData.vsChainShield.long}}"
+            />)
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Plate</td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsPlate.short"
+              type="number"
+              value="{{weaponData.vsPlate.short}}"
+            />
+            (<input
+              name="data.vsPlateShield.short"
+              type="number"
+              value="{{weaponData.vsPlateShield.short}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsPlate.medium"
+              type="number"
+              value="{{weaponData.vsPlate.medium}}"
+            />
+            (<input
+              name="data.vsPlateShield.medium"
+              type="number"
+              value="{{weaponData.vsPlateShield.medium}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsPlate.long"
+              type="number"
+              value="{{weaponData.vsPlate.long}}"
+            />
+            (<input
+              name="data.vsPlateShield.long"
+              type="number"
+              value="{{weaponData.vsPlateShield.long}}"
+            />)
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Horse (Barded)</td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsHorse.short"
+              type="number"
+              value="{{weaponData.vsHorse.short}}"
+            />
+            (<input
+              name="data.vsBardedHorse.short"
+              type="number"
+              value="{{weaponData.vsBardedHorse.short}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsHorse.medium"
+              type="number"
+              value="{{weaponData.vsHorse.medium}}"
+            />
+            (<input
+              name="data.vsBardedHorse.medium"
+              type="number"
+              value="{{weaponData.vsBardedHorse.medium}}"
+            />)
+          </span>
+        </td>
+        <td>
+          <span class="data-cell">
+            <input
+              name="data.vsHorse.long"
+              type="number"
+              value="{{weaponData.vsHorse.long}}"
+            />
+            (<input
+              name="data.vsBardedHorse.long"
+              type="number"
+              value="{{weaponData.vsBardedHorse.long}}"
+            />)
+          </span>
+        </td>
+      </tr>
+    </table>
   </section>
   {{/if}}
 </form>

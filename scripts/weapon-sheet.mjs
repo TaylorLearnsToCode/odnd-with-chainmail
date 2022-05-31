@@ -7,7 +7,7 @@ export class WeaponSheet extends ItemSheet {
       classes: ['system-styles', 'sheet', 'item'],
       template: 'systems/odnd-with-chainmail/templates/odnd-weapon-sheet.html',
       width: 410,
-      height: 380
+      height: 450
     });
   }
 
