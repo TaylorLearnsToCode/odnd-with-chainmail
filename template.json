@@ -3,18 +3,18 @@
     "types": ["character", "monster"],
     "templates": {
       "background": {
-        "biography": ""
+        "biography": "",
+        "specie": {
+          "cp": 0,
+          "sp": 0,
+          "gp": 0
+        }
       },
       "resources": {
         "level": {
           "min": 0,
           "value": 1,
           "max": 14
-        },
-        "specie": {
-          "cp": 0,
-          "sp": 0,
-          "gp": 0
         }
       }
     },
@@ -41,17 +41,99 @@
     }
   },
   "Item": {
-    "types": ["item", "language"],
+    "types": ["item", "language", "meleeWeapon", "missileWeapon"],
+    "templates": {
+      "baseItem": {
+        "cost": 0,
+        "costCoin": "sp",
+        "weight": 0,
+        "quantity": 0,
+        "notes": ""
+      }
+    },
     "item": {
-      "name": "",
-      "cost": 0,
-      "weight": 0,
-      "quantity": 0,
-      "notes": ""
+      "isItem": true,
+      "templates": ["baseItem"]
     },
     "language": {
-      "description": "",
-      "isLanguage": true
+      "isLanguage": true,
+      "description": ""
+    },
+    "meleeWeapon": {
+      "isMeleeWeapon": true,
+      "templates": ["baseItem"],
+      "length": 0,
+      "fightsAs": "",
+      "vsUnarmored": 12,
+      "vsLeather": 12,
+      "vsShield": 12,
+      "vsLeatherShield": 12,
+      "vsChain": 12,
+      "vsChainShield": 12,
+      "vsPlate": 12,
+      "vsPlateShield": 12,
+      "vsHorse": 12,
+      "vsBardedHorse": 12
+    },
+    "missileWeapon": {
+      "isMissileWeapon": true,
+      "templates": ["baseItem"],
+      "range": 0,
+      "massCombat": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsUnarmored": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsLeather": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsShield": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsLeatherShield": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsChain": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsChainShield": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsPlate": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsPlateShield": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsHorse": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      },
+      "vsBardedHorse": {
+        "short": 10,
+        "medium": 11,
+        "long": 12
+      }
     }
   }
 }
