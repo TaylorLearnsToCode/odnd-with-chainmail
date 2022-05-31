@@ -1,0 +1,124 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="odnd-weapon-header">
+    <h1>
+      <input name="name" type="text" value="{{data.name}}" />
+    </h1>
+    <div class="cost">
+      <label>Cost</label>
+      <input name="data.cost" type="number" value="{{weaponData.cost}}" />
+      <select name="data.costCoin" value="{{weaponData.costCoin}}">
+        {{#select weaponData.costCoin}} {{#each COIN_ABBREVIATIONS}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+    </div>
+    <div class="weight">
+      <label>Weight</label>
+      <input name="data.weight" type="number" value="{{weaponData.weight}}" />
+    </div>
+    <div class="quantity">
+      <label>Quantity</label>
+      <input
+        name="data.quantity"
+        type="number"
+        value="{{weaponData.quantity}}"
+      />
+    </div>
+  </header>
+
+  <hr />
+
+  <!-- Melee Weapons -->
+  {{#if weaponData.isMeleeWeapon}}
+  <section class="melee-weapon-details">
+    <div class="two-labeled-across" style="margin-bottom: 5px">
+      <label>Length</label>
+      <input name="data.length" type="number" value="{{weaponData.length}}" />
+      <label>Fights As</label>
+      <select name="data.fightsAs" value="{{weaponData.fightsAs}}">
+        {{#select weaponData.fightsAs}} {{#each TROOP_TYPES}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+    </div>
+    <label>Attack Vs: (with Shield)</label>
+    <ol>
+      <li>
+        <span>Unarmored:</span>
+        <input
+          name="data.vsUnarmored"
+          type="number"
+          value="{{weaponData.vsUnarmored}}"
+        />
+        (
+        <input
+          name="data.vsShield"
+          type="number"
+          value="{{weaponData.vsShield}}"
+        />
+        )
+      </li>
+      <li>
+        <span>Leather / Padded:</span>
+        <input
+          name="data.vsLeather"
+          type="number"
+          value="{{weaponData.vsLeather}}"
+        />
+        (
+        <input
+          name="data.vsLeatherShield"
+          type="number"
+          value="{{weaponData.vsLeatherShield}}"
+        />
+        )
+      </li>
+      <li>
+        <span>Chain, etc:</span>
+        <input
+          name="data.vsChain"
+          type="number"
+          value="{{weaponData.vsChain}}"
+        />
+        (
+        <input
+          name="data.vsChainShield"
+          type="number"
+          value="{{weaponData.vsChainShield}}"
+        />
+        )
+      </li>
+      <li>
+        <span>Plate:</span>
+        <input
+          name="data.vsPlate"
+          type="number"
+          value="{{weaponData.vsPlate}}"
+        />
+        (
+        <input
+          name="data.vsPlateShield"
+          type="number"
+          value="{{weaponData.vsPlateShield}}"
+        />
+        )
+      </li>
+    </ol>
+    <label>Vs Horse: (with Barding)</label>
+    <div class="two-unlabeled-across">
+      <input name="data.vsHorse" type="number" value="{{weaponData.vsHorse}}" />
+      <input
+        name="data.vsBardedHorse"
+        type="number"
+        value="{{weaponData.vsBardedHorse}}"
+      />
+    </div>
+  </section>
+
+  <!-- Missile Weapons -->
+  {{/if}} {{#if weaponData.isMissileWeapon}}
+  <section class="missile-weapon-details">
+    <p>Specifics</p>
+  </section>
+  {{/if}}
+</form>

@@ -3,6 +3,18 @@ input[type=number] {
   text-align: center;
 }
 
+.two-labeled-across {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+.two-unlabeled-across {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+}
+
 /* Character Sheet Header */
 header.odnd-charsheet {
   display: grid;
@@ -42,13 +54,7 @@ section.odnd-sheet-body .three-labeled-across {
   grid-gap: 5px;
 }
 
-section.odnd-sheet-body .two-labeled-across {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-}
-
-section.odnd-sheet-body ol.language-list {
+section.odnd-sheet-body ol {
   list-style: none;
   padding-inline-start: 0px;
 }
@@ -66,7 +72,73 @@ section.odnd-sheet-body .saving-throws {
   margin: 10px 0px;
 }
 
+section.odnd-sheet-body .specie label {
+  text-align: center;
+}
+
 /* Languages Sheet */
 header.odnd-language-header h1 input{
   height: 1.5em;
+}
+
+/* Weapon Sheet */
+header.odnd-weapon-header h1 input{
+  height: 1.5em;
+}
+
+header.odnd-weapon-header {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-areas: 
+    "name name name"
+    "cost weight quantity";
+}
+
+header.odnd-weapon-header h1 {
+  grid-area: name;
+}
+
+header.odnd-weapon-header .cost {
+  grid-area: cost;
+  display: grid;
+  grid-template-areas: 
+    "label label"
+    "input select";
+  grid-template-columns: 2fr 1fr;
+}
+
+header.odnd-weapon-header .cost label {
+  grid-area: label;
+}
+
+header.odnd-weapon-header .cost input {
+  grid-area: input;
+}
+
+header.odnd-weapon-header .cost select {
+  grid-area: select;
+}
+
+header.odnd-weapon-header .weight {
+  grid-area: weight;
+}
+
+header.odnd-weapon-header .quantity {
+  grid-area: quantity;
+}
+
+section.melee-weapon-details ol {
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+section.melee-weapon-details li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1em 1fr 1em;
+  text-align: center;
+}
+
+section.melee-weapon-details li span {
+  text-align: right;
+  padding-right: 1em;
 }

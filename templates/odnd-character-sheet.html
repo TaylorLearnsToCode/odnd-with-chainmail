@@ -110,38 +110,97 @@
           />
         </span>
       </section>
-      <label style="padding-top: 5px; margin-left: 1em; padding-bottom: 3px"
-        >Languages</label
-      >
-      <div class="languages-display">
-        <ol class="language-list">
-          {{#each sheetItems as |language id|}} {{#if language.data.isLanguage}}
-          <li class="language" data-item-id="{{language._id}}">
-            <span> {{language.name}} </span>
-            <a class="edit-language" data-target="{{language._id}}">
-              <i class="fas fa-edit"></i>
-            </a>
-            <a class="remove-language" data-target="{{language._id}}">
-              <i class="fas fa-trash"></i>
-            </a>
+      <section class="two-unlabeled-across">
+        <div>
+          <label style="margin-left: 1em; padding-bottom: 3px">Languages</label>
+          <div class="languages-display">
+            <ol class="language-list">
+              {{#each sheetItems as |language id|}} {{#if
+              language.data.isLanguage}}
+              <li class="language" data-item-id="{{language._id}}">
+                <span> {{language.name}} </span>
+                <a class="edit-language" data-target="{{language._id}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a class="remove-language" data-target="{{language._id}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </li>
+              {{/if}} {{/each}}
+            </ol>
+          </div>
+          <div style="text-align: center">
+            <a class="add-language">+ Add Language</a>
+          </div>
+        </div>
+        <div class="specie two-unlabeled-across">
+          <label>Copper Pieces</label>
+          <input
+            name="data.specie.cp"
+            value="{{sheetData.specie.cp}}"
+            type="number"
+          />
+          <label>Silver Pieces</label>
+          <input
+            name="data.specie.sp"
+            value="{{sheetData.specie.sp}}"
+            type="number"
+          />
+          <label>Gold Pieces</label>
+          <input
+            name="data.specie.gp"
+            value="{{sheetData.specie.gp}}"
+            type="number"
+          />
+        </div>
+      </section>
+      <section class="weapons">
+        <label style="margin-left: 1em">Weapons</label>
+        <br />
+        <label>Melee</label>
+        <ol>
+          {{#each sheetItems as |meleeWeapon id|}} {{#if
+          meleeWeapon.data.isMeleeWeapon}}
+          <li>
+            <i>{{meleeWeapon.name}}</i> | Length: {{meleeWeapon.data.length}} |
+            Fights As: {{meleeWeapon.data.fightsAs}}
+            <span style="float: right">
+              <a class="edit-weapon" data-target="{{meleeWeapon._id}}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a class="remove-weapon" data-target="{{meleeWeapon._id}}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </span>
           </li>
           {{/if}} {{/each}}
         </ol>
-      </div>
-      <div style="text-align: center">
-        <a class="add-language">+ Add Language</a>
-      </div>
+        <label>Ranged</label>
+        <ol>
+          {{#each sheetItems as |missileWeapon id|}} {{#if
+          missileWeapon.data.isMissileWeapon}}
+          <li>
+            <i>{{missileWeapon.name}}</i> | Range: {{missileWeapon.data.range}}"
+            <span style="float: right">
+              <a class="edit-weapon" data-target="{{missileWeapon._id}}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a class="remove-weapon" data-target="{{missileWeapon._id}}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </span>
+          </li>
+          {{/if}} {{/each}}
+        </ol>
+        <div class="two-unlabeled-across" style="text-align: center">
+          <a class="add-melee">+ Add Melee Weapon</a>
+          <a class="add-missile">+ Add Missile Weapon</a>
+        </div>
+      </section>
     </div>
 
     <div class="tab inventory" data-group="primary" data-tab="inventory">
-      <section class="three-labeled-across">
-        <label>Copper Pieces</label>
-        <input name="data.cp" value="{{sheetData.cp}}" type="number" />
-        <label>Silver Pieces</label>
-        <input name="data.sp" value="{{sheetData.sp}}" type="number" />
-        <label>Gold Pieces</label>
-        <input name="data.gp" value="{{sheetData.gp}}" type="number" />
-      </section>
+      <p>Inventory Tab</p>
     </div>
 
     <div class="tab magic" data-group="primary" data-tab="magic">Magic</div>

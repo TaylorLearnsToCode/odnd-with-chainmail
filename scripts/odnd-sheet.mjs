@@ -61,12 +61,47 @@ export class OdndSheet extends ActorSheet {
     html.find('.remove-language').click(event => {
       this._removeLanguage(event);
     });
+    html.find('.add-melee').click(event => {
+      this._addWeapon(event, true);
+    });
+    html.find('.add-missile').click(event => {
+      this._addWeapon(event, false);
+    });
+    html.find('.edit-weapon').click(event => {
+      this._editWeapon(event);
+    });
+    html.find('.remove-weapon').click(event => {
+      this._removeWeapon(event);
+    });
   }
 
-  _addLanguage(event) {
+  async _addWeapon(event, isMelee) {
+    event.preventDefault();
+    const weapon = getDocumentClass('Item');
+    const weaponType = isMelee ? 'meleeWeapon' : 'missileWeapon';
+    const createdWeapon = await weapon.create(
+      { name: 'New Weapon', type: weaponType },
+      { parent: this.actor }
+    );
+    createdWeapon.sheet.render(true);
+  }
+
+  _editWeapon(event) {
+    event.preventDefault();
+    const weapon = this.actor.items.get(event.currentTarget.dataset.target);
+    weapon.sheet.render(true);
+  }
+
+  _removeWeapon(event) {
+    event.preventDefault();
+    const weapon = this.actor.items.get(event.currentTarget.dataset.target);
+    weapon.delete();
+  }
+
+  async _addLanguage(event) {
     event.preventDefault();
     const language = getDocumentClass('Item');
-    return language.create(
+    const createdLanguage = await language.create(
       {
         name: 'New Language',
         type: 'language'
@@ -75,6 +110,7 @@ export class OdndSheet extends ActorSheet {
         parent: this.actor
       }
     );
+    createdLanguage.sheet.render(true);
   }
 
   _editLanguage(event) {
