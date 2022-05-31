@@ -79,11 +79,6 @@
       "isMissileWeapon": true,
       "templates": ["baseItem"],
       "range": 0,
-      "massCombat": {
-        "short": 10,
-        "medium": 11,
-        "long": 12
-      },
       "vsUnarmored": {
         "short": 10,
         "medium": 11,

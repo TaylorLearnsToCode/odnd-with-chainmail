@@ -142,3 +142,28 @@ section.melee-weapon-details li span {
   text-align: right;
   padding-right: 1em;
 }
+
+section.missile-weapon-details {
+  display: grid;
+  grid-template-areas: 
+    "range"
+    "table";
+  grid-gap: 5px;
+}
+
+section.missile-weapon-details .range-and-notes {
+  grid-area: range;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1em 1fr 3fr;
+  text-align: center;
+}
+
+section.missile-weapon-details table {
+  grid-area: table;
+}
+
+section.missile-weapon-details table .data-cell {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr 1em);
+  text-align: center;
+}
