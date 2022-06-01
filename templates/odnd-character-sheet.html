@@ -154,47 +154,53 @@
           />
         </div>
       </section>
-      <section class="weapons">
-        <label style="margin-left: 1em">Weapons</label>
-        <br />
-        <label>Melee</label>
-        <ol>
-          {{#each sheetItems as |meleeWeapon id|}} {{#if
-          meleeWeapon.data.isMeleeWeapon}}
-          <li>
-            <i>{{meleeWeapon.name}}</i> | Length: {{meleeWeapon.data.length}} |
-            Fights As: {{meleeWeapon.data.fightsAs}}
-            <span style="float: right">
-              <a class="edit-weapon" data-target="{{meleeWeapon._id}}">
-                <i class="fas fa-edit"></i>
-              </a>
-              <a class="remove-weapon" data-target="{{meleeWeapon._id}}">
-                <i class="fas fa-trash"></i>
-              </a>
-            </span>
-          </li>
-          {{/if}} {{/each}}
-        </ol>
-        <label>Ranged</label>
-        <ol>
-          {{#each sheetItems as |missileWeapon id|}} {{#if
-          missileWeapon.data.isMissileWeapon}}
-          <li>
-            <i>{{missileWeapon.name}}</i> | Range: {{missileWeapon.data.range}}"
-            <span style="float: right">
-              <a class="edit-weapon" data-target="{{missileWeapon._id}}">
-                <i class="fas fa-edit"></i>
-              </a>
-              <a class="remove-weapon" data-target="{{missileWeapon._id}}">
-                <i class="fas fa-trash"></i>
-              </a>
-            </span>
-          </li>
-          {{/if}} {{/each}}
-        </ol>
-        <div class="two-unlabeled-across" style="text-align: center">
-          <a class="add-melee">+ Add Melee Weapon</a>
-          <a class="add-missile">+ Add Missile Weapon</a>
+      <label>Weapons</label>
+      <section class="two-unlabeled-across">
+        <div>
+          <label style="margin-left: 1em">Melee</label>
+          <ol>
+            {{#each sheetItems as |meleeWeapon id|}} {{#if
+            meleeWeapon.data.isMeleeWeapon}}
+            <li>
+              <i>{{meleeWeapon.name}}</i> | Lth: {{meleeWeapon.data.length}} |
+              As: {{meleeWeapon.data.fightsAs}}
+              <span style="float: right; margin-right: 0.5em">
+                <a class="edit-weapon" data-target="{{meleeWeapon._id}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a class="remove-weapon" data-target="{{meleeWeapon._id}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </span>
+            </li>
+            {{/if}} {{/each}}
+          </ol>
+          <div class="two-unlabeled-across" style="text-align: center">
+            <a class="add-melee">+ Add Melee Weapon</a>
+          </div>
+        </div>
+        <div>
+          <label style="margin-left: 1em">Ranged</label>
+          <ol>
+            {{#each sheetItems as |missileWeapon id|}} {{#if
+            missileWeapon.data.isMissileWeapon}}
+            <li>
+              <i>{{missileWeapon.name}}</i> | Range:
+              {{missileWeapon.data.range}}"
+              <span style="float: right">
+                <a class="edit-weapon" data-target="{{missileWeapon._id}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a class="remove-weapon" data-target="{{missileWeapon._id}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </span>
+            </li>
+            {{/if}} {{/each}}
+          </ol>
+          <div class="two-unlabeled-across" style="text-align: center">
+            <a class="add-missile">+ Add Missile Weapon</a>
+          </div>
         </div>
       </section>
     </div>
