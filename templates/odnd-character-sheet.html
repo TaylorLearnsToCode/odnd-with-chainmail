@@ -208,6 +208,27 @@
         </div>
       </section>
       <br />
+      <h2>Armor</h2>
+      <section class="two-unlabeled-across">
+        {{#each sheetItems as |armor|}} {{#if armor.data.isArmor}}
+        <span>
+          <i>{{armor.name}}</i> | Defends As: {{armor.data.defendsAs}} | Wt:
+          {{armor.data.weight}}
+          <span style="float: right">
+            <a class="edit-armor" data-target="{{armor._id}}">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a class="remove-armor" data-target="{{armor._id}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          </span>
+        </span>
+        {{/if}}{{/each}}
+        <div style="text-align: center">
+          <a class="add-armor">+ Add Armor</a>
+        </div>
+      </section>
+      <br />
       <h2>Additional Inventory</h2>
       <section class="two-unlabeled-across">
         {{#each sheetItems as |item|}}{{#if item.data.isItem}}

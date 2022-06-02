@@ -1,0 +1,40 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header>
+    <h1>
+      <input name="name" type="text" value="{{data.name}}" />
+    </h1>
+  </header>
+  <section class="odnd-armor-body two-unlabeled-across">
+    <span class="item-cost">
+      <label>Cost</label>
+      <input name="data.cost" type="number" value="{{armorData.cost}}" />
+      <select name="data.costCoin" value="{{armorData.costCoin}}">
+        {{#select armorData.costCoin}} {{#each COIN_ABBREVIATIONS}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+    </span>
+    <span>
+      <label>Quantity</label>
+      <input
+        name="data.quantity"
+        type="number"
+        value="{{armorData.quantity}}"
+      />
+    </span>
+    <span>
+      <label>Defends As:</label>
+      <select name="data.defendsAs" value="{{armorData.defendsAs}}">
+        {{#select armorData.defendsAs}} {{#each TROOP_TYPES}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+    </span>
+    <span>
+      <label>Weight</label>
+      <input name="data.weight" type="number" value="{{armorData.weight}}" />
+    </span>
+  </section>
+  <label>Notes</label>
+  <input name="data.notes" type="text" value="{{armorData.notes}}" />
+</form>

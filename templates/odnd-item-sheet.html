@@ -4,13 +4,25 @@
       <input name="name" type="text" value="{{data.name}}" />
     </h1>
   </header>
-  <section class="odnd-item-body">
-    <label>Cost</label>
-    <input name="data.cost" type="number" value="{{weaponData.cost}}" />
-    <select name="data.costCoin" value="{{weaponData.costCoin}}">
-      {{#select weaponData.costCoin}} {{#each COIN_ABBREVIATIONS}}
-      <option value="{{this}}">{{this}}</option>
-      {{/each}} {{/select}}
-    </select>
+  <section class="odnd-item-body three-unlabeled-across">
+    <span class="item-cost">
+      <label>Cost</label>
+      <input name="data.cost" type="number" value="{{itemData.cost}}" />
+      <select name="data.costCoin" value="{{itemData.costCoin}}">
+        {{#select weaponData.costCoin}} {{#each COIN_ABBREVIATIONS}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+    </span>
+    <span>
+      <label>Weight</label>
+      <input name="data.weight" type="number" value="{{itemData.weight}}" />
+    </span>
+    <span>
+      <label>Quantity</label>
+      <input name="data.quantity" type="number" value="{{itemData.quantity}}" />
+    </span>
   </section>
+  <label>Notes</label>
+  <input name="data.notes" type="text" value="{{itemData.notes}}" />
 </form>

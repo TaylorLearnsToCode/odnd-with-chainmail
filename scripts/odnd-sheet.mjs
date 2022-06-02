@@ -82,6 +82,15 @@ export class OdndSheet extends ActorSheet {
     html.find('.remove-item').click(event => {
       this._removeItem(event);
     });
+    html.find('.add-armor').click(event => {
+      this._addArmor(event);
+    });
+    html.find('.edit-armor').click(event => {
+      this._editArmor(event);
+    });
+    html.find('.remove-armor').click(event => {
+      this._removeArmor(event);
+    });
   }
 
   async _addItem(event) {
@@ -92,6 +101,16 @@ export class OdndSheet extends ActorSheet {
       { parent: this.actor }
     );
     createdItem.sheet.render(true);
+  }
+
+  async _addArmor(event) {
+    event.preventDefault();
+    const armor = getDocumentClass('Item');
+    const createdArmor = await armor.create(
+      { name: 'New Armor', type: 'armor' },
+      { parent: this.actor }
+    );
+    createdArmor.sheet.render(true);
   }
 
   async _addWeapon(event, isMelee) {
@@ -111,6 +130,12 @@ export class OdndSheet extends ActorSheet {
     weapon.sheet.render(true);
   }
 
+  _editArmor(event) {
+    event.preventDefault();
+    const armor = this.actor.items.get(event.currentTarget.dataset.target);
+    armor.sheet.render(true);
+  }
+
   _editItem(event) {
     event.preventDefault();
     const item = this.actor.items.get(event.currentTarget.dataset.target);
@@ -121,6 +146,12 @@ export class OdndSheet extends ActorSheet {
     event.preventDefault();
     const weapon = this.actor.items.get(event.currentTarget.dataset.target);
     weapon.delete();
+  }
+
+  _removeArmor(event) {
+    event.preventDefault();
+    const armor = this.actor.item.get(event.currentTarget.dataset.target);
+    armor.delete();
   }
 
   _removeItem(event) {
