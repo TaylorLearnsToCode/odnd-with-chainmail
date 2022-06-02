@@ -15,6 +15,29 @@ input[type=number] {
   grid-gap: 5px;
 }
 
+.three-unlabeled-across {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+
+.item-cost {
+  display: grid;
+  grid-template-areas:
+    "label label"
+    "cost coin";
+  grid-template-columns: 2fr 1fr;
+}
+.item-cost label {
+  grid-area: label;
+}
+.item-cost input {
+  grid-area: cost;
+}
+.item-cost select {
+  grid-area: coin;
+}
+
 /* Character Sheet Header */
 header.odnd-charsheet {
   display: grid;
