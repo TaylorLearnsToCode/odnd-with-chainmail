@@ -1,0 +1,16 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="odnd-item-header">
+    <h1>
+      <input name="name" type="text" value="{{data.name}}" />
+    </h1>
+  </header>
+  <section class="odnd-item-body">
+    <label>Cost</label>
+    <input name="data.cost" type="number" value="{{weaponData.cost}}" />
+    <select name="data.costCoin" value="{{weaponData.costCoin}}">
+      {{#select weaponData.costCoin}} {{#each COIN_ABBREVIATIONS}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}} {{/select}}
+    </select>
+  </section>
+</form>

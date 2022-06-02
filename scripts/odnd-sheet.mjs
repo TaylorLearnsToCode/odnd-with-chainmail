@@ -73,6 +73,25 @@ export class OdndSheet extends ActorSheet {
     html.find('.remove-weapon').click(event => {
       this._removeWeapon(event);
     });
+    html.find('.add-item').click(event => {
+      this._addItem(event);
+    });
+    html.find('.edit-item').click(event => {
+      this._editItem(event);
+    });
+    html.find('.remove-item').click(event => {
+      this._removeItem(event);
+    });
+  }
+
+  async _addItem(event) {
+    event.preventDefault();
+    const item = getDocumentClass('Item');
+    const createdItem = await item.create(
+      { name: 'New Item', type: 'item' },
+      { parent: this.actor }
+    );
+    createdItem.sheet.render(true);
   }
 
   async _addWeapon(event, isMelee) {
@@ -92,10 +111,22 @@ export class OdndSheet extends ActorSheet {
     weapon.sheet.render(true);
   }
 
+  _editItem(event) {
+    event.preventDefault();
+    const item = this.actor.items.get(event.currentTarget.dataset.target);
+    item.sheet.render(true);
+  }
+
   _removeWeapon(event) {
     event.preventDefault();
     const weapon = this.actor.items.get(event.currentTarget.dataset.target);
     weapon.delete();
+  }
+
+  _removeItem(event) {
+    event.preventDefault();
+    const item = this.actor.items.get(event.currentTarget.dataset.target);
+    item.delete();
   }
 
   async _addLanguage(event) {

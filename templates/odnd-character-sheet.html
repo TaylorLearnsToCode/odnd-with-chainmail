@@ -41,7 +41,7 @@
     <a class="item" data-tab="magic">Magic</a>
   </nav>
 
-  {{!-- Character Sheet Body --}}
+  {{!-- Character Record Tab --}}
   <section class="sheet-body odnd-sheet-body">
     <div
       class="tab record character-record"
@@ -154,7 +154,11 @@
           />
         </div>
       </section>
-      <label>Weapons</label>
+    </div>
+
+    {{!-- Inventory Tab --}}
+    <div class="tab inventory" data-group="primary" data-tab="inventory">
+      <h2>Weapons</h2>
       <section class="two-unlabeled-across">
         <div>
           <label style="margin-left: 1em">Melee</label>
@@ -175,7 +179,7 @@
             </li>
             {{/if}} {{/each}}
           </ol>
-          <div class="two-unlabeled-across" style="text-align: center">
+          <div style="text-align: center">
             <a class="add-melee">+ Add Melee Weapon</a>
           </div>
         </div>
@@ -198,17 +202,35 @@
             </li>
             {{/if}} {{/each}}
           </ol>
-          <div class="two-unlabeled-across" style="text-align: center">
+          <div style="text-align: center">
             <a class="add-missile">+ Add Missile Weapon</a>
           </div>
         </div>
       </section>
+      <br />
+      <h2>Additional Inventory</h2>
+      <section class="two-unlabeled-across">
+        {{#each sheetItems as |item|}}{{#if item.data.isItem}}
+        <span>
+          <i>{{item.name}}</i> | Wt: {{item.data.weight}} | Qty:
+          {{item.data.quantity}}
+          <span style="float: right">
+            <a class="edit-item" data-target="{{item._id}}">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a class="remove-item" data-target="{{item._id}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          </span>
+        </span>
+        {{/if}}{{/each}}
+      </section>
+      <div style="text-align: center">
+        <a class="add-item">+ Add Item</a>
+      </div>
     </div>
 
-    <div class="tab inventory" data-group="primary" data-tab="inventory">
-      <p>Inventory Tab</p>
-    </div>
-
+    {{!-- Magic Tab --}}
     <div class="tab magic" data-group="primary" data-tab="magic">Magic</div>
   </section>
 </form>

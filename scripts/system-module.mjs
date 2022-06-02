@@ -1,3 +1,4 @@
+import { OdndItemSheet } from './item-sheet.mjs';
 import { LanguageSheet } from './language-sheet.mjs';
 import { OdndActor } from './odnd-actor.mjs';
 import { OdndSheet } from './odnd-sheet.mjs';
@@ -29,6 +30,7 @@ Hooks.once('init', async function () {
   Actors.registerSheet('odnd', OdndSheet, { makeDefault: true });
   Items.registerSheet('odnd', LanguageSheet, { makeDefault: false });
   Items.registerSheet('odnd', WeaponSheet, { makeDefault: false });
+  Items.registerSheet('odnd', OdndItemSheet, { makeDefault: false });
 
   // add cached templates (child HTMLs) for performance
   return loadTemplates([]);
