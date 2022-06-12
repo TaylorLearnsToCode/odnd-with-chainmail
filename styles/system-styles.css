@@ -190,3 +190,19 @@ section.missile-weapon-details table .data-cell {
   grid-template-columns: repeat(2, 1fr 1em);
   text-align: center;
 }
+
+/* Spell Sheet */
+.odnd-spell-sheet .two-labeled-across label {
+  text-align: center;
+}
+
+/* Magic Section, Character Sheet */
+.spells-iterated {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.spells-iterated h3 {
+  margin-left: 1em;
+}
