@@ -3,7 +3,7 @@
     "types": ["character", "monster"],
     "templates": {
       "background": {
-        "biography": "",
+        "notes": "",
         "specie": {
           "cp": 0,
           "sp": 0,
@@ -35,7 +35,6 @@
       "dex": 10,
       "cha": 10,
       "xp": 0,
-      "xpBonus": 0,
       "alignment": "Undeclared",
       "deathPoison": 20,
       "wands": 20,
