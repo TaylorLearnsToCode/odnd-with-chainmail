@@ -41,7 +41,14 @@
     }
   },
   "Item": {
-    "types": ["item", "language", "meleeWeapon", "missileWeapon", "armor"],
+    "types": [
+      "item",
+      "language",
+      "meleeWeapon",
+      "missileWeapon",
+      "armor",
+      "spell"
+    ],
     "templates": {
       "baseItem": {
         "cost": 0,
@@ -63,6 +70,12 @@
     "language": {
       "isLanguage": true,
       "description": ""
+    },
+    "spell": {
+      "isSpell": true,
+      "level": 0,
+      "effect": "",
+      "wasCast": false
     },
     "meleeWeapon": {
       "isMeleeWeapon": true,

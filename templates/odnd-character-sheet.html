@@ -252,6 +252,144 @@
     </div>
 
     {{!-- Magic Tab --}}
-    <div class="tab magic" data-group="primary" data-tab="magic">Magic</div>
+    <div class="tab magic" data-group="primary" data-tab="magic">
+      <div class="spells-iterated">
+        <h3>First Level</h3>
+        <h3>Second Level</h3>
+        <h3>Third Level</h3>
+        <ol>
+          {{#each sheetItems as |spell|}}{{#isSpellLevel spell 1}}
+          <li>
+            <a class="spell-cast">
+              {{#if spell.data.wasCast}}
+              <i class="fas fa-check-square"></i>
+              {{else}}
+              <i class="fas fa-square"></i>
+              {{/if}}
+            </a>
+            <a class="edit-spell" data-target="{{spell._id}}">{{spell.name}}</a>
+            <a
+              class="remove-spell"
+              style="float: right; margin-right: 2em"
+              data-target="{{spell._id}}"
+            >
+              <i class="fas fa-trash"></i>
+            </a>
+          </li>
+          {{/isSpellLevel}}{{/each}}
+        </ol>
+        <ol>
+          {{#each sheetItems as |spell|}}{{#isSpellLevel spell 2}}
+          <li>
+            <a class="spell-cast">
+              {{#if spell.data.wasCast}}
+              <i class="fas fa-check-square"></i>
+              {{else}}
+              <i class="fas fa-square"></i>
+              {{/if}}
+            </a>
+            <a class="edit-spell" data-target="{{spell._id}}">{{spell.name}}</a>
+            <a
+              class="remove-spell"
+              style="float: right; margin-right: 2em"
+              data-target="{{spell._id}}"
+            >
+              <i class="fas fa-trash"></i>
+            </a>
+          </li>
+          {{/isSpellLevel}}{{/each}}
+        </ol>
+        <ol>
+          {{#each sheetItems as |spell|}}{{#isSpellLevel spell 3}}
+          <li>
+            <a class="spell-cast">
+              {{#if spell.data.wasCast}}
+              <i class="fas fa-check-square"></i>
+              {{else}}
+              <i class="fas fa-square"></i>
+              {{/if}}
+            </a>
+            <a class="edit-spell" data-target="{{spell._id}}">{{spell.name}}</a>
+            <a
+              class="remove-spell"
+              style="float: right; margin-right: 2em"
+              data-target="{{spell._id}}"
+            >
+              <i class="fas fa-trash"></i>
+            </a>
+          </li>
+          {{/isSpellLevel}}{{/each}}
+        </ol>
+        <h3>Fourth Level</h3>
+        <h3>Fifth Level</h3>
+        <h3>Sixth Level</h3>
+        <ol>
+          {{#each sheetItems as |spell|}}{{#isSpellLevel spell 4}}
+          <li>
+            <a class="spell-cast">
+              {{#if spell.data.wasCast}}
+              <i class="fas fa-check-square"></i>
+              {{else}}
+              <i class="fas fa-square"></i>
+              {{/if}}
+            </a>
+            <a class="edit-spell" data-target="{{spell._id}}">{{spell.name}}</a>
+            <a
+              class="remove-spell"
+              style="float: right; margin-right: 2em"
+              data-target="{{spell._id}}"
+            >
+              <i class="fas fa-trash"></i>
+            </a>
+          </li>
+          {{/isSpellLevel}}{{/each}}
+        </ol>
+        <ol>
+          {{#each sheetItems as |spell|}}{{#isSpellLevel spell 5}}
+          <li>
+            <a class="spell-cast">
+              {{#if spell.data.wasCast}}
+              <i class="fas fa-check-square"></i>
+              {{else}}
+              <i class="fas fa-square"></i>
+              {{/if}}
+            </a>
+            <a class="edit-spell" data-target="{{spell._id}}">{{spell.name}}</a>
+            <a
+              class="remove-spell"
+              style="float: right; margin-right: 2em"
+              data-target="{{spell._id}}"
+            >
+              <i class="fas fa-trash"></i>
+            </a>
+          </li>
+          {{/isSpellLevel}}{{/each}}
+        </ol>
+        <ol>
+          {{#each sheetItems as |spell|}}{{#isSpellLevel spell 6}}
+          <li>
+            <a class="spell-cast">
+              {{#if spell.data.wasCast}}
+              <i class="fas fa-check-square"></i>
+              {{else}}
+              <i class="fas fa-square"></i>
+              {{/if}}
+            </a>
+            <a class="edit-spell" data-target="{{spell._id}}">{{spell.name}}</a>
+            <a
+              class="remove-spell"
+              style="float: right; margin-right: 2em"
+              data-target="{{spell._id}}"
+            >
+              <i class="fas fa-trash"></i>
+            </a>
+          </li>
+          {{/isSpellLevel}}{{/each}}
+        </ol>
+      </div>
+      <div style="text-align: center">
+        <a class="add-spell">Memorize Spell</a>
+      </div>
+    </div>
   </section>
 </form>

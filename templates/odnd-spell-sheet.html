@@ -1,0 +1,19 @@
+<form class="odnd-spell-sheet">
+  <h1>
+    <input name="name" type="text" value="{{data.name}}" />
+  </h1>
+  <div class="two-labeled-across">
+    <label>Level</label>
+    <input name="data.level" type="number" value="{{spellData.level}}" />
+    <label>Cast</label>
+    <a class="sheet-spell-cast" ()>
+      {{#if spellData.wasCast}}
+      <i class="fas fa-check-square"></i>
+      {{else}}
+      <i class="fas fa-square"></i>
+      {{/if}}
+    </a>
+  </div>
+  <label>Effect</label>
+  <input name="data.effect" type="text" value="{{spellData.effect}}" />
+</form>

@@ -91,6 +91,28 @@ export class OdndSheet extends ActorSheet {
     html.find('.remove-armor').click(event => {
       this._removeArmor(event);
     });
+    html.find('.add-spell').click(event => {
+      this._addSpell(event);
+    });
+    html.find('.edit-spell').click(event => {
+      this._editSpell(event);
+    });
+    html.find('.spell-cast').click(event => {
+      this._castSpell(event);
+    });
+    html.find('.remove-spell').click(event => {
+      this._removeSpell(event);
+    });
+  }
+
+  _castSpell(event) {
+    event.preventDefault();
+    const spell = this.actor.items.get(
+      event.currentTarget.nextElementSibling.dataset.target
+    );
+    spell.update({
+      [`data.wasCast`]: !spell.data.data.wasCast
+    });
   }
 
   async _addItem(event) {
@@ -101,6 +123,16 @@ export class OdndSheet extends ActorSheet {
       { parent: this.actor }
     );
     createdItem.sheet.render(true);
+  }
+
+  async _addSpell(event) {
+    event.preventDefault();
+    const spell = getDocumentClass('Item');
+    const createdSpell = await spell.create(
+      { name: 'New Spell', type: 'spell' },
+      { parent: this.actor }
+    );
+    createdSpell.sheet.render(true);
   }
 
   async _addArmor(event) {
@@ -136,6 +168,12 @@ export class OdndSheet extends ActorSheet {
     armor.sheet.render(true);
   }
 
+  _editSpell(event) {
+    event.preventDefault();
+    const spell = this.actor.items.get(event.currentTarget.dataset.target);
+    spell.sheet.render(true);
+  }
+
   _editItem(event) {
     event.preventDefault();
     const item = this.actor.items.get(event.currentTarget.dataset.target);
@@ -150,8 +188,14 @@ export class OdndSheet extends ActorSheet {
 
   _removeArmor(event) {
     event.preventDefault();
-    const armor = this.actor.item.get(event.currentTarget.dataset.target);
+    const armor = this.actor.items.get(event.currentTarget.dataset.target);
     armor.delete();
+  }
+
+  _removeSpell(event) {
+    event.preventDefault();
+    const spell = this.actor.items.get(event.currentTarget.dataset.target);
+    spell.delete();
   }
 
   _removeItem(event) {
