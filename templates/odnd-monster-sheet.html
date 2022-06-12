@@ -1,8 +1,15 @@
-<form class="flexcol {{cssClass}}" autocomplete="off">
-  {{!-- Actor Sheet Header --}}
-  <header class="sheet-header">
+<form class="{{cssClass}}" autocomplete="off">
+  <!-- Header -->
+  <header class="odnd-monster-header">
+    <img
+      class="profile-img odnd-char-icon"
+      src="{{data.img}}"
+      data-edit="img"
+      title="{{data.name}}"
+      height="50"
+      width="50"
+    />
     <h1>
-      Monster
       <input
         name="name"
         type="text"
@@ -10,19 +17,124 @@
         title="{{data.name}}"
       />
     </h1>
-    <label>Strength</label>
-    <input name="str" type="number" value="{{data.str}}" />
   </header>
 
-  {{!-- Tab Navigation --}}
+  <!-- Navigation -->
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="placeholder">Placeholder</a>
+    <a class="item" data-tab="encounter">Encounter Attributes</a>
+    <a class="item" data-tab="monster-meta">Meta Attributes</a>
   </nav>
 
-  {{!-- Monster Sheet Body --}}
-  <section class="sheet-body">
-    <div class="tab description" data-group="primary" data-tab="placeholder">
-      Placeholder.
+  <!-- Monster Sheet Body -->
+  <section class="sheet-body odnd-monster-body">
+    <div class="tab encounter" data-group="primary" data-tab="encounter">
+      <section class="top-bit">
+        <label>Move</label>
+        <input name="data.move" type="number" value="{{sheetData.move}}" />
+        <label>Hit Dice</label>
+        <input name="data.hd" type="number" value="{{sheetData.hd}}" />
+        <span>+/-</span>
+        <input
+          name="data.hdModifier"
+          type="number"
+          value="{{sheetData.hdModifier}}"
+        />
+      </section>
+      <label>Notes</label>
+      <input name="data.notes" type="text" value="{{sheetData.notes}}" />
+      <br />
+      <h2>Weapons</h2>
+      <section class="two-unlabeled-across">
+        <div>
+          <label style="margin-left: 1em">Melee</label>
+          <ol>
+            {{#each sheetItems as |meleeWeapon id|}} {{#if
+            meleeWeapon.data.isMeleeWeapon}}
+            <li>
+              <i>{{meleeWeapon.name}}</i> | Lth: {{meleeWeapon.data.length}} |
+              As: {{meleeWeapon.data.fightsAs}}
+              <span style="float: right; margin-right: 0.5em">
+                <a class="edit-weapon" data-target="{{meleeWeapon._id}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a class="remove-weapon" data-target="{{meleeWeapon._id}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </span>
+            </li>
+            {{/if}} {{/each}}
+          </ol>
+          <div style="text-align: center">
+            <a class="add-melee">+ Add Melee Weapon</a>
+          </div>
+        </div>
+        <div>
+          <label style="margin-left: 1em">Ranged</label>
+          <ol>
+            {{#each sheetItems as |missileWeapon id|}} {{#if
+            missileWeapon.data.isMissileWeapon}}
+            <li>
+              <i>{{missileWeapon.name}}</i> | Range:
+              {{missileWeapon.data.range}}"
+              <span style="float: right">
+                <a class="edit-weapon" data-target="{{missileWeapon._id}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a class="remove-weapon" data-target="{{missileWeapon._id}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </span>
+            </li>
+            {{/if}} {{/each}}
+          </ol>
+          <div style="text-align: center">
+            <a class="add-missile">+ Add Missile Weapon</a>
+          </div>
+        </div>
+      </section>
+      <br />
+      <h2>Armor</h2>
+      <section class="two-unlabeled-across">
+        {{#each sheetItems as |armor|}} {{#if armor.data.isArmor}}
+        <span>
+          <i>{{armor.name}}</i> | Defends As: {{armor.data.defendsAs}} | Wt:
+          {{armor.data.weight}}
+          <span style="float: right">
+            <a class="edit-armor" data-target="{{armor._id}}">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a class="remove-armor" data-target="{{armor._id}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          </span>
+        </span>
+        {{/if}}{{/each}}
+        <div style="text-align: center">
+          <a class="add-armor">+ Add Armor</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="tab monster-meta" data-group="primary" data-tab="monster-meta">
+      <section class="meta-top">
+        <label>No. Appearing</label>
+        <input
+          type="number"
+          name="data.noAppearing.min"
+          value="{{sheetData.noAppearing.min}}"
+        />
+        <span>/</span>
+        <input
+          type="number"
+          name="data.noAppearing.max"
+          value="{{sheetData.noAppearing.max}}"
+        />
+        <label>&percnt; in Lair</label>
+        <input type="number" name="data.inLair" value="{{sheetData.inLair}}" />
+      </section>
+      <br />
+      <label>Treasure</label>
+      <input type="text" name="data.treasure" value="{{sheetData.treasure}}" />
     </div>
   </section>
 </form>

@@ -15,6 +15,13 @@
           "min": 0,
           "value": 1,
           "max": 14
+        },
+        "noAppearing": {
+          "noAppearing": {
+            "min": 0,
+            "value": 0,
+            "max": 0
+          }
         }
       }
     },
@@ -37,7 +44,13 @@
       "stavesSpells": 20
     },
     "monster": {
-      "templates": ["resources"]
+      "templates": ["resources", "noAppearing"],
+      "hd": 0,
+      "hdModifier": 0,
+      "move": 0,
+      "notes": "",
+      "inLair": 0,
+      "treasure": ""
     }
   },
   "Item": {
