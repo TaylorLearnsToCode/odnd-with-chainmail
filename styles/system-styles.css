@@ -25,6 +25,12 @@ input[type=number] {
   grid-gap: 5px;
 }
 
+.three-labeled-across {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 5px;
+}
+
 .item-cost {
   display: grid;
   grid-template-areas:

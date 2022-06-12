@@ -110,7 +110,27 @@
           />
         </span>
       </section>
-      <section class="two-unlabeled-across">
+      <section class="three-labeled-across" style="margin-top: 0.5em">
+        <label>Withstand Adversity</label>
+        <input
+          type="number"
+          name="data.withstandAdversity"
+          value="{{sheetData.withstandAdversity}}"
+        />
+        <label>Bonus per Hit Die</label>
+        <input
+          type="number"
+          name="data.hdBonus"
+          value="{{sheetData.hdBonus}}"
+        />
+        <label>Missile Attack Bonus</label>
+        <input
+          type="number"
+          name="data.missileBonus"
+          value="{{sheetData.missileBonus}}"
+        />
+      </section>
+      <section class="two-unlabeled-across" style="margin-top: 0.5em">
         <div>
           <label style="margin-left: 1em; padding-bottom: 3px">Languages</label>
           <div class="languages-display">
@@ -154,6 +174,8 @@
           />
         </div>
       </section>
+      <label>Character Notes</label>
+      <input type="text" name="data.notes" value="{{sheetData.notes}}" />
     </div>
 
     {{!-- Inventory Tab --}}
