@@ -49,7 +49,9 @@
       "move": 0,
       "notes": "",
       "inLair": 0,
-      "treasure": ""
+      "treasure": "",
+      "description": "",
+      "morale": 0
     }
   },
   "Item": {

@@ -19,6 +19,16 @@
     </h1>
   </header>
 
+  <!-- Description -->
+  <section>
+    <label>Description</label>
+    <input
+      type="text"
+      name="data.description"
+      value="{{sheetData.description}}"
+    />
+  </section>
+
   <!-- Navigation -->
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="encounter">Encounter Attributes</a>
@@ -31,6 +41,8 @@
       <section class="top-bit">
         <label>Move</label>
         <input name="data.move" type="number" value="{{sheetData.move}}" />
+        <label>Morale</label>
+        <input name="data.morale" type="number" value="{{sheetData.morale}}" />
         <label>Hit Dice</label>
         <input name="data.hd" type="number" value="{{sheetData.hd}}" />
         <span>+/-</span>
@@ -123,7 +135,7 @@
           name="data.noAppearing.min"
           value="{{sheetData.noAppearing.min}}"
         />
-        <span>/</span>
+        <span>-</span>
         <input
           type="number"
           name="data.noAppearing.max"
