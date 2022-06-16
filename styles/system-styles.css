@@ -74,6 +74,12 @@ header.odnd-charsheet .odnd-char-resources {
   grid-template-columns: repeat(3, 1fr 2fr);
 }
 
+header.odnd-charsheet .hp-block {
+  display: grid;
+  grid-template-columns: 1fr 1em 1fr;
+  text-align: center;
+}
+
 /* Character Sheet Body */
 section.odnd-sheet-body .character-abilities {
   display: grid;
@@ -212,7 +218,13 @@ section.missile-weapon-details table .data-cell {
 header.odnd-monster-header {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 50px 4fr 1fr;
+}
+
+header.odnd-monster-header div {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1em 2fr;
+  text-align: center;
 }
 
 section.odnd-monster-body .top-bit {

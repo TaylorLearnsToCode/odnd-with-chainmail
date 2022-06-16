@@ -25,12 +25,20 @@
         type="number"
         value="{{sheetData.level.value}}"
       />
-      <label>Alignment</label>
-      <select name="data.alignment" value="sheetData.alignment">
-        {{#select sheetData.alignment}} {{#each ALIGNMENTS}}
-        <option value="{{this}}">{{this}}</option>
-        {{/each}} {{/select}}
-      </select>
+      <label>HP</label>
+      <div class="hp-block">
+        <input
+          name="data.hitPoints.value"
+          type="number"
+          value="{{sheetData.hitPoints.value}}"
+        />
+        <span>/</span>
+        <input
+          name="data.hitPoints.max"
+          type="number"
+          value="{{sheetData.hitPoints.max}}"
+        />
+      </div>
     </section>
   </header>
 
@@ -62,7 +70,7 @@
         <label>Charisma</label>
         <input name="data.cha" type="number" value="{{sheetData.cha}}" />
       </section>
-      <section class="two-labeled-across" style="padding-top: 5px">
+      <section class="three-labeled-across" style="padding-top: 5px">
         <label>Experience</label>
         <input name="data.xp" type="number" value="{{sheetData.xp}}" />
         <label>XP Bonus</label>
@@ -75,6 +83,12 @@
           />
           %
         </span>
+        <label>Alignment</label>
+        <select name="data.alignment" value="sheetData.alignment">
+          {{#select sheetData.alignment}} {{#each ALIGNMENTS}}
+          <option value="{{this}}">{{this}}</option>
+          {{/each}} {{/select}}
+        </select>
       </section>
       <section class="saving-throws">
         <span>
