@@ -10,18 +10,23 @@
           "gp": 0
         }
       },
+      "noAppearing": {
+        "noAppearing": {
+          "min": 0,
+          "value": 0,
+          "max": 0
+        }
+      },
       "resources": {
         "level": {
           "min": 0,
           "value": 1,
           "max": 14
         },
-        "noAppearing": {
-          "noAppearing": {
-            "min": 0,
-            "value": 0,
-            "max": 0
-          }
+        "hitPoints": {
+          "min": 0,
+          "value": 0,
+          "max": 0
         }
       }
     },
