@@ -188,6 +188,22 @@
           />
         </div>
       </section>
+      <div class="three-labeled-across">
+        <label>As Light</label>
+        <input type="number" value="{{sheetData.encumbrance.light}}" />
+        <label>As Heavy</label>
+        <input type="number" value="{{sheetData.encumbrance.heavy}}" />
+        <label>As Armored</label>
+        <input type="number" value="{{sheetData.encumbrance.armored}}" />
+      </div>
+      <div class="three-labeled-across">
+        <label>Maximum Load</label>
+        <input type="number" value="{{sheetData.encumbrance.max}}" />
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <label>Current Carried Weight</label>
+        <input type="number" value="{{sheetData.carriedWeight}}" />
+      </div>
       <label>Character Notes</label>
       <input type="text" name="data.notes" value="{{sheetData.notes}}" />
     </div>
@@ -195,8 +211,8 @@
     {{!-- Inventory Tab --}}
     <div class="tab inventory" data-group="primary" data-tab="inventory">
       <div style="width: 30%; float: right" class="two-unlabeled-across">
-        <label>Net Weight:</label>
-        <input type="text" value="{{sheetData.carriedWeight}}" />
+        <label>Carried Weight:</label>
+        <input type="number" value="{{sheetData.carriedWeight}}" />
       </div>
       <h2>Weapons</h2>
       <section class="two-unlabeled-across">
