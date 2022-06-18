@@ -19,6 +19,7 @@ export class OdndActor extends Actor {
     this._calculateWithstandAdversity(actorData.data);
     this._calculateHitDieBonus(actorData.data);
     this._calculateMissileBonus(actorData.data);
+    this._calculateEncumbrance(actorData);
   }
 
   _prepareMonsterData(actorData) {
@@ -103,5 +104,17 @@ export class OdndActor extends Actor {
     } else {
       data.missileBonus = 0;
     }
+  }
+
+  _calculateEncumbrance(data) {
+    let netWeight = 0;
+    if (!!data.items) {
+      for (const item of data.items.values()) {
+        if (!item.isLanguage && !item.isSpell) {
+          netWeight += !!item.data.data.weight ? item.data.data.weight : 0;
+        }
+      }
+    }
+    data.data.carriedWeight = netWeight;
   }
 }
