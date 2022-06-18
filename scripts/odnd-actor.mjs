@@ -19,7 +19,8 @@ export class OdndActor extends Actor {
     this._calculateWithstandAdversity(actorData.data);
     this._calculateHitDieBonus(actorData.data);
     this._calculateMissileBonus(actorData.data);
-    this._calculateEncumbrance(actorData);
+    this._calculateCarriedWeight(actorData);
+    this._calculateEncumbranceThreshold(actorData.data);
   }
 
   _prepareMonsterData(actorData) {
@@ -106,7 +107,7 @@ export class OdndActor extends Actor {
     }
   }
 
-  _calculateEncumbrance(data) {
+  _calculateCarriedWeight(data) {
     let netWeight = 0;
     if (!!data.items) {
       for (const item of data.items.values()) {
@@ -116,5 +117,35 @@ export class OdndActor extends Actor {
       }
     }
     data.data.carriedWeight = netWeight;
+  }
+
+  _calculateEncumbranceThreshold(data) {
+    // yeah, yeah - this is from Greyhawk: I get it...
+    const str = data.str;
+    let range = [750, 1000, 1500, 3000];
+    let modifier;
+    if (str == 18) {
+      modifier = 500;
+    } else if (str >= 17) {
+      modifier = 300;
+    } else if (str >= 16) {
+      modifier = 150;
+    } else if (str >= 13) {
+      modifier = 100;
+    } else if (str >= 10) {
+      modifier = 50;
+    } else if (str >= 7) {
+      modifier = 0;
+    } else if (str >= 5) {
+      modifier = -50;
+    } else {
+      modifier = -100;
+    }
+    data.encumbrance = {
+      light: range[0] + modifier,
+      heavy: range[1] + modifier,
+      armored: range[2] + modifier,
+      max: range[3] + modifier
+    };
   }
 }
