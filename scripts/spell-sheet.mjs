@@ -36,7 +36,7 @@ export class OdndSpellSheet extends ItemSheet {
   _castSpell(event) {
     event.preventDefault();
     this.item.update({
-      [`data.wasCast`]: !this.item.data.data.wasCast
+      [`data.memorized`]: !this.item.data.data.memorized
     });
   }
 }

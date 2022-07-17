@@ -111,7 +111,7 @@ export class OdndSheet extends ActorSheet {
       event.currentTarget.nextElementSibling.dataset.target
     );
     spell.update({
-      [`data.wasCast`]: !spell.data.data.wasCast
+      [`data.memorized`]: !spell.data.data.memorized
     });
   }
 
