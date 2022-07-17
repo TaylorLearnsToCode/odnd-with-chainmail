@@ -74,7 +74,7 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="record">Character Record</a>
     <a class="item" data-tab="inventory">Inventory</a>
-    <a class="item" data-tab="magic">Magic</a>
+    <a class="item" data-tab="magic">Spells</a>
   </nav>
 
   {{!-- Character Record Tab --}}
@@ -339,7 +339,7 @@
           {{#each sheetItems as |spell|}}{{#isSpellLevel spell 1}}
           <li>
             <a class="spell-cast">
-              {{#if spell.data.wasCast}}
+              {{#if spell.data.memorized}}
               <i class="fas fa-check-square"></i>
               {{else}}
               <i class="fas fa-square"></i>
@@ -360,7 +360,7 @@
           {{#each sheetItems as |spell|}}{{#isSpellLevel spell 2}}
           <li>
             <a class="spell-cast">
-              {{#if spell.data.wasCast}}
+              {{#if spell.data.memorized}}
               <i class="fas fa-check-square"></i>
               {{else}}
               <i class="fas fa-square"></i>
@@ -381,7 +381,7 @@
           {{#each sheetItems as |spell|}}{{#isSpellLevel spell 3}}
           <li>
             <a class="spell-cast">
-              {{#if spell.data.wasCast}}
+              {{#if spell.data.memorized}}
               <i class="fas fa-check-square"></i>
               {{else}}
               <i class="fas fa-square"></i>
@@ -405,7 +405,7 @@
           {{#each sheetItems as |spell|}}{{#isSpellLevel spell 4}}
           <li>
             <a class="spell-cast">
-              {{#if spell.data.wasCast}}
+              {{#if spell.data.memorized}}
               <i class="fas fa-check-square"></i>
               {{else}}
               <i class="fas fa-square"></i>
@@ -426,7 +426,7 @@
           {{#each sheetItems as |spell|}}{{#isSpellLevel spell 5}}
           <li>
             <a class="spell-cast">
-              {{#if spell.data.wasCast}}
+              {{#if spell.data.memorized}}
               <i class="fas fa-check-square"></i>
               {{else}}
               <i class="fas fa-square"></i>
@@ -447,7 +447,7 @@
           {{#each sheetItems as |spell|}}{{#isSpellLevel spell 6}}
           <li>
             <a class="spell-cast">
-              {{#if spell.data.wasCast}}
+              {{#if spell.data.memorized}}
               <i class="fas fa-check-square"></i>
               {{else}}
               <i class="fas fa-square"></i>

@@ -93,9 +93,9 @@
     },
     "spell": {
       "isSpell": true,
-      "level": 0,
+      "level": 1,
       "effect": "",
-      "wasCast": false
+      "memorized": false
     },
     "meleeWeapon": {
       "isMeleeWeapon": true,

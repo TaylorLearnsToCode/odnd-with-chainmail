@@ -5,9 +5,9 @@
   <div class="two-labeled-across">
     <label>Level</label>
     <input name="data.level" type="number" value="{{spellData.level}}" />
-    <label>Cast</label>
+    <label>Memorized?</label>
     <a class="sheet-spell-cast" ()>
-      {{#if spellData.wasCast}}
+      {{#if spellData.memorized}}
       <i class="fas fa-check-square"></i>
       {{else}}
       <i class="fas fa-square"></i>
