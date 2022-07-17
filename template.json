@@ -18,15 +18,15 @@
         }
       },
       "resources": {
-        "level": {
-          "min": 0,
-          "value": 1,
-          "max": 14
-        },
         "hitPoints": {
           "min": 0,
           "value": 0,
           "max": 0
+        },
+        "fatigue": {
+          "min": 0,
+          "value": 0,
+          "max": 5
         }
       }
     },
@@ -45,7 +45,8 @@
       "wands": 20,
       "stone": 20,
       "dragonBreath": 20,
-      "stavesSpells": 20
+      "stavesSpells": 20,
+      "playerName": ""
     },
     "monster": {
       "templates": ["resources", "noAppearing"],

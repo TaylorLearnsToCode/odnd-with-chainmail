@@ -2,7 +2,7 @@
   "name": "odnd-with-chainmail",
   "title": "Original Dungeons & Dragons with Chainmail",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "CWR - with a lot of help!",
   "scripts": ["scripts/system-script.js"],
   "esmodules": ["scripts/system-module.mjs"],
@@ -33,7 +33,7 @@
   "gridDistance": 1,
   "gridUnits": "in",
   "primaryTokenAttribute": "resources.hitPoints",
-  "secondaryTokenAttribute": "resources.level",
+  "secondaryTokenAttribute": "resources.fatigue",
   "url": "https://github.com/TaylorLearnsToCode/odnd-with-chainmail/",
   "manifest": "https://raw.githubusercontent.com/TaylorLearnsToCode/odnd-with-chainmail/master/system.json",
   "download": "https://github.com/TaylorLearnsToCode/odnd-with-chainmail/archive/refs/heads/master.zip"

@@ -9,7 +9,7 @@
       <label>Cost</label>
       <input name="data.cost" type="number" value="{{itemData.cost}}" />
       <select name="data.costCoin" value="{{itemData.costCoin}}">
-        {{#select weaponData.costCoin}} {{#each COIN_ABBREVIATIONS}}
+        {{#select itemData.costCoin}} {{#each COIN_ABBREVIATIONS}}
         <option value="{{this}}">{{this}}</option>
         {{/each}} {{/select}}
       </select>

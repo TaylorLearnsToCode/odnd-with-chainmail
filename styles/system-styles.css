@@ -1,6 +1,6 @@
 /* Global */
 h1 input {
-  height: 1.5em;
+  height: 1.5em !important;
 }
 
 input[type=number] {
@@ -51,8 +51,8 @@ input[type=number] {
 /* Character Sheet Header */
 header.odnd-charsheet {
   display: grid;
-  grid-template-rows: 50px 50px;
-  grid-template-columns: 100px 1fr;
+  grid-template-rows: 50px 60px;
+  grid-template-columns: 110px 1fr;
   grid-gap: 5px;
   grid-template-areas:
     "o-icon o-char-name"
@@ -61,6 +61,8 @@ header.odnd-charsheet {
 
 header.odnd-charsheet .odnd-char-icon {
   grid-area: o-icon;
+  height: 110px;
+  width: 110px;
 }
 
 header.odnd-charsheet .odnd-char-name {
@@ -72,6 +74,7 @@ header.odnd-charsheet .odnd-char-resources {
   display: grid;
   text-align: center;
   grid-template-columns: repeat(3, 1fr 2fr);
+  grid-gap: 5px;
 }
 
 header.odnd-charsheet .hp-block {
@@ -212,6 +215,12 @@ section.missile-weapon-details table .data-cell {
 
 .spells-iterated h3 {
   margin-left: 1em;
+  margin-bottom: 0px;
+}
+
+.spells-iterated ol {
+  margin-top: 0px;
+  margin-bottom: 0.5em;
 }
 
 /* Monster Sheet */
