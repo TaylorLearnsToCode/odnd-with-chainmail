@@ -13,6 +13,7 @@
       <input name="name" type="text" value="{{data.name}}" />
     </h1>
     <section class="odnd-char-resources">
+      <!-- top row -->
       <label>Class</label>
       <select name="data.class" value="{{sheetData.class}}">
         {{#select sheetData.class}} {{#each CHARACTER_CLASSES}}
@@ -37,6 +38,33 @@
           name="data.hitPoints.max"
           type="number"
           value="{{sheetData.hitPoints.max}}"
+        />
+      </div>
+      <!-- bottom row -->
+      <label>Player</label>
+      <input
+        name="data.playerName"
+        type="text"
+        value="{{sheetData.playerName}}"
+      />
+      <label>Alignment</label>
+      <select name="data.alignment" value="sheetData.alignment">
+        {{#select sheetData.alignment}} {{#each ALIGNMENTS}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}} {{/select}}
+      </select>
+      <label>Fatigue</label>
+      <div class="hp-block">
+        <input
+          name="data.fatigue.value"
+          type="number"
+          value="{{sheetData.fatigue.value}}"
+        />
+        <span>/</span>
+        <input
+          name="data.fatigue.max"
+          type="number"
+          value="{{sheetData.fatigue.max}}"
         />
       </div>
     </section>
@@ -70,7 +98,7 @@
         <label>Charisma</label>
         <input name="data.cha" type="number" value="{{sheetData.cha}}" />
       </section>
-      <section class="three-labeled-across" style="padding-top: 5px">
+      <section class="two-labeled-across" style="padding-top: 5px">
         <label>Experience</label>
         <input name="data.xp" type="number" value="{{sheetData.xp}}" />
         <label>XP Bonus</label>
@@ -83,12 +111,6 @@
           />
           %
         </span>
-        <label>Alignment</label>
-        <select name="data.alignment" value="sheetData.alignment">
-          {{#select sheetData.alignment}} {{#each ALIGNMENTS}}
-          <option value="{{this}}">{{this}}</option>
-          {{/each}} {{/select}}
-        </select>
       </section>
       <section class="saving-throws">
         <span>
@@ -444,7 +466,7 @@
         </ol>
       </div>
       <div style="text-align: center">
-        <a class="add-spell">Memorize Spell</a>
+        <a class="add-spell">Add Spell</a>
       </div>
     </div>
   </section>

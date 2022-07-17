@@ -26,6 +26,7 @@ export class OdndSpellSheet extends ItemSheet {
 
   /** @override */
   submit(options) {
+    this.item.data.data.level = parseInt(this.item.data.data.level);
     if (this.item.data.data.level < 1 || this.item.data.data.level > 6) {
       this.item.delete();
     }
