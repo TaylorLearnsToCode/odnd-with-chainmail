@@ -227,7 +227,9 @@
         <input type="number" value="{{sheetData.carriedWeight}}" />
       </div>
       <label>Character Notes</label>
-      <input type="text" name="data.notes" value="{{sheetData.notes}}" />
+      <textarea class="character-notes">
+        {{~sheetData.notes~}}
+      </textarea>
     </div>
 
     {{!-- Inventory Tab --}}

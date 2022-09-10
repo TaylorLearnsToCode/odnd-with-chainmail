@@ -2,7 +2,7 @@
   "name": "odnd-with-chainmail",
   "title": "Original Dungeons & Dragons with Chainmail",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "CWR - with a lot of help!",
   "scripts": ["scripts/system-script.js"],
   "esmodules": ["scripts/system-module.mjs"],

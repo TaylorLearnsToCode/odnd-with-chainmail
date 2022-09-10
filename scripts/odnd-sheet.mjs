@@ -103,6 +103,15 @@ export class OdndSheet extends ActorSheet {
     html.find('.remove-spell').click(event => {
       this._removeSpell(event);
     });
+    html.find('.character-notes').on('change', event => {
+      this._updateCharacterNotes(event);
+    });
+  }
+
+  async _updateCharacterNotes(event) {
+    event.preventDefault();
+    const characterNotes = event.currentTarget.value;
+    await this.actor.update({ 'data.notes': characterNotes });
   }
 
   _castSpell(event) {
