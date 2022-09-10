@@ -22,6 +22,9 @@ export class OdndSpellSheet extends ItemSheet {
     html.find('.sheet-spell-cast').click(event => {
       this._castSpell(event);
     });
+    html.find('.spell-effect').on('change', event => {
+      this._updateSpellEffect(event);
+    });
   }
 
   /** @override */
@@ -38,5 +41,13 @@ export class OdndSpellSheet extends ItemSheet {
     this.item.update({
       [`data.memorized`]: !this.item.data.data.memorized
     });
+  }
+
+  async _updateSpellEffect(event) {
+    event.preventDefault();
+    await this.item.update({
+      ['data.effect']: event.currentTarget.value
+    });
+    console.warn(this.item);
   }
 }
