@@ -48,6 +48,5 @@ export class OdndSpellSheet extends ItemSheet {
     await this.item.update({
       ['data.effect']: event.currentTarget.value
     });
-    console.warn(this.item);
   }
 }
